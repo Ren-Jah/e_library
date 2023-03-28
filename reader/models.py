@@ -13,7 +13,7 @@ class Reader(BaseModel):
 
     name = models.CharField(verbose_name="Имя", max_length=255)
     surname = models.CharField(verbose_name="Фамилия", max_length=255)
-    phone_num = models.CharField(verbose_name="Телефонный номер", max_length=10)
+    phone_num = models.CharField(verbose_name="Телефонный номер", max_length=30)
     is_active = models.BooleanField(verbose_name="Статус", default=True)
     active_books = models.ManyToManyField(Book, max_length=3)
 

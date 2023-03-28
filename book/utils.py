@@ -1,0 +1,6 @@
+# books_in = Book.objects.values('quantity_in')
+#         active_boo = data.get('active_books')
+#         print(f" active_books {active_boo}")
+#         print(books_in)
+#         print(f"quantity_in {books_in[1].get('quantity_in')}")
+#         #self.__books_in_stock(data.get('quantity_in'))
