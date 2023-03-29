@@ -1,5 +1,6 @@
 from django.db import models
 from book.models import BaseModel, Book
+from reader.validators import validate_phone_num
 
 
 class Reader(BaseModel):
@@ -13,7 +14,7 @@ class Reader(BaseModel):
 
     name = models.CharField(verbose_name="Имя", max_length=255)
     surname = models.CharField(verbose_name="Фамилия", max_length=255)
-    phone_num = models.CharField(verbose_name="Телефонный номер", max_length=30)
+    phone_num = models.CharField(verbose_name="Телефонный номер", max_length=30, validators=[validate_phone_num])
     is_active = models.BooleanField(verbose_name="Статус", default=True)
     active_books = models.ManyToManyField(Book, max_length=3)
 
