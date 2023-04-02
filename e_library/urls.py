@@ -16,20 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
-from rest_framework.routers import SimpleRouter
 
-from author.api.viewset import AuthorViewSet
-from book.api.viewset import BookViewSet
-from reader.api.viewset import ReaderViewSet
-
-router = SimpleRouter()
-router.register('authors', AuthorViewSet)
-router.register('books', BookViewSet)
-router.register('readers', ReaderViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
+    path('api/reader/', include('reader.api.urls')),
+    path('api/author/', include('author.api.urls')),
+    path('api/book/', include('book.api.urls')),
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     # Optional UI:
     path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),

@@ -17,7 +17,7 @@ def delete_active_books(modeladmin, request, objs):
 
 
 class ReaderAdmin(admin.ModelAdmin):
-    list_display = ("name", "surname", "display_active_books", "phone_num", "is_active")
+    list_display = ("username", "name", "surname", "display_active_books", "phone_num", "is_active", "role")
     list_filter = ("name", "surname")
     actions = [change_active_status, delete_active_books]
 

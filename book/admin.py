@@ -18,9 +18,8 @@ class BookAdmin(admin.ModelAdmin):
     actions = [set_quantity_in_zero]
 
     def author_link(self, obj):
-        author_id = obj.author.id
-        url = reverse("admin:author_author_change", args=[author_id])
-        return format_html(f'<a href="{url}">{author_id}</a>')
+        url = reverse("admin:author_author_change", args=[obj.author.id])
+        return format_html(f'<a href="{url}">{obj.author}</a>')
 
 
 
